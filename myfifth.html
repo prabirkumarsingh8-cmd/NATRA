@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Browser & SEO Metadata -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official Fall 2026 Student Registration Portal for Apex Technical Institute.">
+  <meta name="author" content="Apex Technical Institute Admissions">
+  <meta name="theme-color" content="#003366">
+  <title>Student Registration Portal | Apex Technical Institute</title>
+
+  <style>
+    /* Minimal accessible styling for clarity, contrast, and keyboard focus */
+    :root {
+      --primary: #003366;
+      --text: #1a1a1a;
+      --bg: #ffffff;
+      --surface: #f4f6f9;
+      --border: #595959;
+      --focus: #d9534f;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Skip Link for Keyboard Users */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 16px;
+      z-index: 100;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* High-visibility keyboard focus indicator */
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    header, footer {
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 1rem 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    fieldset {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 0.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .inline-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: normal;
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      max-width: 450px;
+      padding: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button[type="submit"] {
+      background-color: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    aside {
+      background-color: var(--surface);
+      padding: 1.5rem;
+      border-radius: 4px;
+      height: fit-content;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessibility Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Page Header & Primary Navigation -->
+  <header>
+    <h1>Apex Technical Institute</h1>
+    <nav aria-label="Primary Navigation">
+      <ul>
+        <li><a href="#registration-section">Registration</a></li>
+        <li><a href="#program-overview">Program Overview</a></li>
+        <li><a href="#admissions-help">Admissions Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <div class="container">
+    <main id="main-content">
+      
+      <!-- Article: Contextual Information -->
+      <article id="program-overview">
+        <h2>2026–2027 Academic Session Registration</h2>
+        <p>Welcome to the online enrollment portal. Please complete all required fields marked with an asterisk (<span aria-hidden="true">*</span><span class="sr-only">required</span>) to submit your application.</p>
+      </article>
+
+      <!-- Section: Accessible Student Registration Form -->
+      <section id="registration-section" aria-labelledby="form-heading">
+        <h2 id="form-heading">Student Registration Form</h2>
+        
+        <form action="/submit-registration" method="POST">
+          
+          <!-- Fieldset 1: Text Fields -->
+          <fieldset>
+            <legend>Personal Details</legend>
+
+            <div class="form-group">
+              <label for="full-name">Full Name *</label>
+              <input type="text" id="full-name" name="fullName" autocomplete="name" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="email-address">Email Address *</label>
+              <input type="email" id="email-address" name="email" autocomplete="email" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="phone-number">Phone Number</label>
+              <input type="tel" id="phone-number" name="phone" autocomplete="tel" aria-describedby="phone-hint">
+              <small id="phone-hint" style="display:block;">Format: +91 98765 43210</small>
+            </div>
+          </fieldset>
+
+          <!-- Fieldset 2: Dropdown Selection -->
+          <fieldset>
+            <legend>Academic Selection</legend>
+
+            <div class="form-group">
+              <label for="department">Select Department *</label>
+              <select id="department" name="department" required aria-required="true">
+                <option value="">-- Choose a Department --</option>
+                <option value="cs">Computer Science &amp; Engineering</option>
+                <option value="ds">Data Science &amp; AI</option>
+                <option value="ee">Electronics &amp; Communication</option>
+                <option value="me">Mechanical Engineering</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <!-- Fieldset 3: Radio Buttons -->
+          <fieldset>
+            <legend>Enrollment Mode *</legend>
+            <label class="inline-label">
+              <input type="radio" name="enrollmentMode" value="full-time" required> Full-Time (On-Campus)
+            </label>
+            <label class="inline-label">
+              <input type="radio" name="enrollmentMode" value="part-time"> Part-Time (Evening)
+            </label>
+            <label class="inline-label">
+              <input type="radio" name="enrollmentMode" value="hybrid"> Hybrid
+            </label>
+          </fieldset>
+
+          <!-- Fieldset 4: Checkboxes -->
+          <fieldset>
+            <legend>Optional Campus Facilities</legend>
+            <label class="inline-label">
+              <input type="checkbox" name="facilities" value="hostel"> Hostel Accommodation
+            </label>
+            <label class="inline-label">
+              <input type="checkbox" name="facilities" value="transport"> Bus Transport
+            </label>
+            <label class="inline-label">
+              <input type="checkbox" name="facilities" value="library"> Extended Digital Library Access
+            </label>
+          </fieldset>
+
+          <!-- Fieldset 5: Textarea & Declaration -->
+          <fieldset>
+            <legend>Additional Information</legend>
+            
+            <div class="form-group">
+              <label for="statement">Statement of Purpose / Special Accommodations</label>
+              <textarea id="statement" name="statement" rows="4" placeholder="Mention any accessibility requirements or academic goals..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="inline-label">
+                <input type="checkbox" id="terms" name="terms" required aria-required="true">
+                I confirm that all information provided is accurate. *
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit">Submit Registration</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Complementary Sidebar -->
+    <aside id="admissions-help" aria-labelledby="aside-heading">
+      <h2 id="aside-heading">Admissions Guidelines</h2>
+      <section>
+        <h3>Important Deadlines</h3>
+        <p>Applications for the upcoming semester close on <strong>December 15, 2026</strong>.</p>
+      </section>
+      <section>
+        <h3>Need Assistance?</h3>
+        <p>Contact the helpdesk at <a href="mailto:admissions@apextech.edu">admissions@apextech.edu</a>.</p>
+      </section>
+    </aside>
+  </div>
+
+  <!-- Page Footer -->
+  <footer>
+    <p>&copy; 2026 Apex Technical Institute. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
