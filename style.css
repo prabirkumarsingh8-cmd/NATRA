@@ -82,7 +82,7 @@ nav a:hover {
     
 }
 button {
-    background-color: oklch(65.089% 0.11846 254.176);
+    background-color: oklch(36.689% 0.0405 207.872);
     color: white;
     border: 0;
     padding: 13px 24px;
@@ -92,5 +92,5 @@ button {
 }
 
 button:hover {
-    background-color: oklch(65.089% 0.11846 254.176 / 0.8);
+    background-color: oklch(73.216% 0.12959 159.474 / 0.8);
 }
